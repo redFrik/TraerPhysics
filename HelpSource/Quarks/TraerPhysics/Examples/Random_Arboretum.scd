@@ -15,6 +15,8 @@ var centroidX= 0;
 var centroidY= 0;
 
 var initialize, updateCentroid, drawNetwork, addNode, addSpacesToNode, makeEdgeBetween;
+var frameTimes= List.new(50);
+frameTimes.add(0);
 
 usr.background= Color.white;
 physics= TraerParticleSystem(gy: 0, drag:0.1);
@@ -30,21 +32,26 @@ physics= TraerParticleSystem(gy: 0, drag:0.1);
 
 
 usr.drawFunc= {
+	var frameRate;
+	frameTimes.add(Main.elapsedTime);
+	if(frameTimes.size>=50, {frameTimes.removeAt(0)});
+	frameRate= 50/(frameTimes.differentiate.drop(1)).sum;
+
 	physics.tick;
 	if(physics.numberOfParticles>1, {
 		updateCentroid.value;
 	});
 	Pen.color= Color.black;
 	Pen.width= 2;
-	Pen.stringAtPoint(""++physics.numberOfParticles+"PARTICLES\n"++usr.frameRate.round+"FPS", Point(10, 20));
 	Pen.stringAtPoint(""++physics.numberOfParticles+"PARTICLES", Point(10, 20));
+	Pen.stringAtPoint(""++frameRate.round(0.1)+"FPS", Point(10, 40));
 	Pen.translate(width/2, height/2);
 	Pen.scale(scale, scale);
 	Pen.translate(0-centroidX, 0-centroidY);
 	drawNetwork.value;
 };
 drawNetwork= {
-	
+
 	//draw vertices
 	Pen.fillColor= Color.grey(160/255);
 	physics.numberOfParticles.do{|i|
@@ -52,7 +59,7 @@ drawNetwork= {
 		Pen.addOval(Rect.aboutPoint(Point(v.position.x, v.position.y), node_size, node_size));
 	};
 	Pen.fill;
-	
+
 	//draw edges
 	physics.numberOfSprings.do{|i|
 		var e= physics.getSpring(i);
@@ -126,7 +133,14 @@ addNode= {
 };
 
 usr.focus(true);
-usr.animate= true;
 win.front;
 CmdPeriod.doOnce({win.close});
+Routine({
+	var nextTime;
+	while({win.isClosed.not}, {
+		nextTime= Main.elapsedTime+(1/60);
+		usr.refresh;
+		(nextTime-Main.elapsedTime).max(0.001).wait;
+	});
+}).play(AppClock);
 )

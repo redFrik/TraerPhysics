@@ -5,7 +5,6 @@ var width= 640, height= 360, maxAge= 200, maxBorneAge= 100;
 var win= Window("red05", Rect(100, 100, width, height), false, false);
 var usr= UserView(win, Rect(0, 0, width, height));
 var physics;
-
 usr.background= Color.red;
 usr.clearOnRefresh= false;
 physics= TraerParticleSystem(0, 0, 0, 0.4);
@@ -40,10 +39,16 @@ usr.drawFunc= {
 	};
 	Pen.stroke;
 };
-
-usr.animate= true;
 win.front;
 CmdPeriod.doOnce({win.close});
+Routine({
+	var nextTime;
+	while({win.isClosed.not}, {
+		nextTime= Main.elapsedTime+(1/60);
+		usr.refresh;
+		(nextTime-Main.elapsedTime).max(0.001).wait;
+	});
+}).play(AppClock);
 )
 
 //click and drag

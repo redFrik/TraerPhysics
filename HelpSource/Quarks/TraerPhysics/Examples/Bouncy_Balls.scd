@@ -29,7 +29,7 @@ usr.drawFunc= {
 	handleBoundaryCollisions.value(b);
 	handleBoundaryCollisions.value(c);
 	physics.tick;
-	
+
 	Pen.color= Color.black;
 	Pen.strokeOval(Rect.aboutPoint(Point(mouse.position.x, mouse.position.y), 17.5, 17.5));
 	Pen.fillOval(Rect.aboutPoint(Point(b.position.x, b.position.y), 17.5, 17.5));
@@ -44,7 +44,14 @@ handleBoundaryCollisions= {|p|
 	});
 	p.position.set(p.position.x.clip(0, width), p.position.y.clip(0, height), 0);
 };
-usr.animate= true;
 win.front;
 CmdPeriod.doOnce({win.close});
+Routine({
+	var nextTime;
+	while({win.isClosed.not}, {
+		nextTime= Main.elapsedTime+(1/60);
+		usr.refresh;
+		(nextTime-Main.elapsedTime).max(0.001).wait;
+	});
+}).play(AppClock);
 )

@@ -33,7 +33,14 @@ usr.drawFunc= {
 	Pen.fillOval(Rect.aboutPoint(Point(p.position.x, p.position.y), 10, 10));
 };
 
-usr.animate= true;
 win.front;
 CmdPeriod.doOnce({win.close});
+Routine({
+	var nextTime;
+	while({win.isClosed.not}, {
+		nextTime= Main.elapsedTime+(1/60);
+		usr.refresh;
+		(nextTime-Main.elapsedTime).max(0.001).wait;
+	});
+}).play(AppClock);
 )

@@ -3,8 +3,9 @@
 	\path:			"TraerPhysics",
 	\summary:		"A simple particle system physics engine",
 	\author:			"Jeffrey Traer Bernstein & redFrik",
-	\helpdoc:			"TraerPhysicsOverview",
+	\schelp:			"TraerPhysicsOverview",
 	\url:				"http://murderandcreate.com/physics/",
-	\version:			1.1,
+	\since:				"2012",
+	\version:			"1.2",
 	\isCompatible:		{Main.versionAtLeast(3, 4)}
 )

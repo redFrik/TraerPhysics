@@ -55,14 +55,14 @@ usr.mouseUpAction= {|v, x, y|
 
 usr.drawFunc= {
 	physics.tick;
-	
+
 	if(mp, {
 		particles[0][gridSize-1].position.set(mx, my, 0);
 		particles[0][gridSize-1].velocity.clear;
 		px= mx;
 		py= my;
 	});
-	
+
 	Pen.color= Color.black;
 	gridSize.do{|i|
 		Pen.moveTo(Point(particles[i][0].position.x, particles[i][0].position.y));
@@ -82,7 +82,14 @@ usr.drawFunc= {
 		Pen.stroke;
 	};
 };
-usr.animate= true;
 win.front;
 CmdPeriod.doOnce({win.close});
+Routine({
+	var nextTime;
+	while({win.isClosed.not}, {
+		nextTime= Main.elapsedTime+(1/60);
+		usr.refresh;
+		(nextTime-Main.elapsedTime).max(0.001).wait;
+	});
+}).play(AppClock);
 )
