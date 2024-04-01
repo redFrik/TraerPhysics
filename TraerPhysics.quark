@@ -3,7 +3,7 @@
 	\path:			"TraerPhysics",
 	\summary:		"A simple particle system physics engine",
 	\author:			"Jeffrey Traer Bernstein & redFrik",
-	\schelp:			"TraerPhysicsOverview",
+	\schelp:			"Overviews/TraerPhysicsOverview",
 	\url:				"http://murderandcreate.com/physics/",
 	\since:				"2012",
 	\version:			"1.2",
