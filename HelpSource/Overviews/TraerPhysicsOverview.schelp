@@ -18,16 +18,16 @@ TABLE::
 
 SECTION::Examples
 TABLE::
-## link::Quarks/TraerPhysics/Examples/Simple_Pendulum.scd:: || Simple Pendulum by Jeffrey Traer Bernstein
-## link::Quarks/TraerPhysics/Examples/Bouncy_Balls.scd:: || Bouncy Balls by Jeffrey Traer Bernstein
-## link::Quarks/TraerPhysics/Examples/cloth.scd:: || cloth by Jeffrey Traer Bernstein
-## link::Quarks/TraerPhysics/Examples/Random_Arboretum.scd:: || Random Arboretum by Jeffrey Traer Bernstein
-## link::Quarks/TraerPhysics/Examples/red00.scd:: || red00 by redFrik
-## link::Quarks/TraerPhysics/Examples/red01.scd:: || red01 by redFrik
-## link::Quarks/TraerPhysics/Examples/red02.scd:: || red02 by redFrik
-## link::Quarks/TraerPhysics/Examples/red03.scd:: || red03 by redFrik
-## link::Quarks/TraerPhysics/Examples/red04.scd:: || red04 by redFrik
-## link::Quarks/TraerPhysics/Examples/red05.scd:: || red05 by redFrik
-## link::Quarks/TraerPhysics/Examples/particle_system_with_sound.scd:: || particle system with sound
-## link::Quarks/TraerPhysics/Examples/particle_system_without_graphics.scd:: || only sound
+## link::./Quarks/TraerPhysics/Examples/Simple_Pendulum.scd:: || Simple Pendulum by Jeffrey Traer Bernstein
+## link::./Quarks/TraerPhysics/Examples/Bouncy_Balls.scd:: || Bouncy Balls by Jeffrey Traer Bernstein
+## link::./Quarks/TraerPhysics/Examples/cloth.scd:: || cloth by Jeffrey Traer Bernstein
+## link::./Quarks/TraerPhysics/Examples/Random_Arboretum.scd:: || Random Arboretum by Jeffrey Traer Bernstein
+## link::./Quarks/TraerPhysics/Examples/red00.scd:: || red00 by redFrik
+## link::./Quarks/TraerPhysics/Examples/red01.scd:: || red01 by redFrik
+## link::./Quarks/TraerPhysics/Examples/red02.scd:: || red02 by redFrik
+## link::./Quarks/TraerPhysics/Examples/red03.scd:: || red03 by redFrik
+## link::./Quarks/TraerPhysics/Examples/red04.scd:: || red04 by redFrik
+## link::./Quarks/TraerPhysics/Examples/red05.scd:: || red05 by redFrik
+## link::./Quarks/TraerPhysics/Examples/particle_system_with_sound.scd:: || particle system with sound
+## link::./Quarks/TraerPhysics/Examples/particle_system_without_graphics.scd:: || only sound
 ::
